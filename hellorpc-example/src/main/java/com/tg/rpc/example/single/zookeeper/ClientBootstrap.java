@@ -10,6 +10,8 @@ import com.tg.rpc.example.service.EchoService;
 import com.tg.rpc.example.service.TestService;
 import com.tg.rpc.zookeeper.ZookeeperCompentFactory;
 
+import java.util.Arrays;
+
 /**
  * Created by twogoods on 17/2/17.
  */
@@ -17,8 +19,8 @@ public class ClientBootstrap {
     public static void main(String[] args) throws Exception {
         ClientProperty clientA = new ClientProperty();
         clientA.serviceName("testService")
-                .interfaces("com.tg.rpc.example.service.EchoService,com.tg.rpc.example.service.TestService");
-        ServiceDiscovery serviceDiscovery = ZookeeperCompentFactory.getDiscovery("localhost",2181,"/tgrpc/services");
+        .setInterfaces(Arrays.asList("com.tg.rpc.example.service.EchoService","com.tg.rpc.example.service.EchoService"));
+        ServiceDiscovery serviceDiscovery = ZookeeperCompentFactory.getDiscovery("111.231.62.191",2181,"/tgrpc/services");
         Client client = new Client.Builder()
                 .serviceDiscovery(serviceDiscovery)
                 .connectionMinIdle(1)

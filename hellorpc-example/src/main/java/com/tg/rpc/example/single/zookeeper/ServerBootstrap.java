@@ -14,7 +14,7 @@ import com.tg.rpc.zookeeper.ZookeeperCompentFactory;
  */
 public class ServerBootstrap {
     public static void main(String[] args) throws ValidateException {
-        ServiceRegistry serviceRegistry = ZookeeperCompentFactory.getRegistry("localhost", 2181, "/tgrpc/services");
+        ServiceRegistry serviceRegistry = ZookeeperCompentFactory.getRegistry("111.231.62.191", 2181, "/tgrpc/services");
         Server server = new Server.Builder()
                 .port(9001)
                 .serviceName("testService")
