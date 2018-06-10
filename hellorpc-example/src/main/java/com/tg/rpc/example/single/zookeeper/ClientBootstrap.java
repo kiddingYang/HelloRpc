@@ -19,7 +19,7 @@ public class ClientBootstrap {
     public static void main(String[] args) throws Exception {
         ClientProperty clientA = new ClientProperty();
         clientA.serviceName("testService")
-        .setInterfaces(Arrays.asList("com.tg.rpc.example.service.EchoService","com.tg.rpc.example.service.EchoService"));
+        .setInterfaces(Arrays.asList("com.tg.rpc.example.service.EchoService","com.tg.rpc.example.service.TestService"));
         ServiceDiscovery serviceDiscovery = ZookeeperCompentFactory.getDiscovery("111.231.62.191",2181,"/tgrpc/services");
         Client client = new Client.Builder()
                 .serviceDiscovery(serviceDiscovery)
